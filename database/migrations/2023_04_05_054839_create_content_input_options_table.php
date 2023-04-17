@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('content_desc', function (Blueprint $table) {
+        Schema::create('content_input_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('info_id')->constrained('content_info')->onDelete('cascade');
-            $table->longText('description');
+            $table->string('name');
+            $table->string('value');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('content_desc');
+        Schema::dropIfExists('content_input_options');
     }
 };

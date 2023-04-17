@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('content_qr', function (Blueprint $table) {
+        Schema::create('content_inputs', function (Blueprint $table) {
             $table->id();
-            $table->string('qr_code');
-            $table->foreignId('info_id')->constrained('content_info')->onDelete('cascade');
+            $table->string('name');
+            $table->string('input_type');
+            $table->string('input_status');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('content_qr');
+        Schema::dropIfExists('content_inputs');
     }
 };
